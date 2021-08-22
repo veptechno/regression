@@ -9,23 +9,21 @@ import com.justai.jaicf.logging.Slf4jConversationLogger
 import com.justai.jaicf.template.scenario.mainScenario
 import java.util.*
 
-val accessToken: String = System.getenv("JAICP_API_TOKEN") ?: Properties().run {
-    load(CailaNLUSettings::class.java.getResourceAsStream("/jaicp.properties"))
-    getProperty("apiToken")
-}
+val accessToken =
+    System.getenv("JAICP_API_TOKEN")
+        ?: print("Enter your JAICP project API key: ").run { readLine() }!!
 
 private val cailaNLUSettings = CailaNLUSettings(
     accessToken = accessToken
 )
 
-val templateBot = BotEngine(
+val testBot = BotEngine(
     scenario = mainScenario,
     conversationLoggers = arrayOf(
         JaicpConversationLogger(accessToken),
         Slf4jConversationLogger()
     ),
     activators = arrayOf(
-        CailaIntentActivator.Factory(cailaNLUSettings),
         RegexActivator
     )
 )

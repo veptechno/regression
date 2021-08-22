@@ -20,6 +20,7 @@ repositories {
     mavenCentral()
     jcenter()
     maven("https://jitpack.io")
+//    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
@@ -28,7 +29,18 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback")
 
     implementation("com.just-ai.jaicf:core:$jaicf")
+    implementation("com.just-ai.jaicf:core:$jaicf")
     implementation("com.just-ai.jaicf:jaicp:$jaicf")
+    implementation("com.just-ai.jaicf:aimybox:$jaicf")
+    implementation("com.just-ai.jaicf:telegram:$jaicf")
+    implementation("com.just-ai.jaicf:alexa:$jaicf")
+    implementation("com.just-ai.jaicf:google-actions:$jaicf")
+    implementation("com.just-ai.jaicf:facebook:$jaicf")
+    implementation("com.just-ai.jaicf:viber:$jaicf")
+    implementation("com.just-ai.jaicf:slack:$jaicf")
+    implementation("com.just-ai.jaicf:yandex-alice:$jaicf")
+
+
     implementation("com.just-ai.jaicf:caila:$jaicf")
 }
 

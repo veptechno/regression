@@ -5,7 +5,7 @@ import com.justai.jaicf.channel.alexa.AlexaChannel
 import com.justai.jaicf.channel.facebook.FacebookChannel
 import com.justai.jaicf.channel.googleactions.jaicp.ActionsFulfillmentDialogflow
 import com.justai.jaicf.channel.googleactions.jaicp.ActionsFulfillmentSDK
-import com.justai.jaicf.channel.jaicp.JaicpPollingConnector
+import com.justai.jaicf.channel.jaicp.JaicpServer
 import com.justai.jaicf.channel.jaicp.channels.ChatApiChannel
 import com.justai.jaicf.channel.jaicp.channels.ChatWidgetChannel
 import com.justai.jaicf.channel.jaicp.channels.TelephonyChannel
@@ -17,9 +17,9 @@ import com.justai.jaicf.template.accessToken
 import com.justai.jaicf.template.testBot
 
 fun main() {
-    JaicpPollingConnector(
-        testBot,
-        accessToken,
+    JaicpServer(
+        botApi = testBot,
+        accessToken = accessToken,
         channels = listOf(
             ActionsFulfillmentDialogflow(),
             ActionsFulfillmentSDK(),
@@ -34,5 +34,5 @@ fun main() {
             TelephonyChannel,
             ViberChannel.Factory()
         )
-    ).runBlocking()
+    ).start()
 }
