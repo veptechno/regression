@@ -5,7 +5,6 @@ import com.justai.jaicf.channel.jaicp.chatwidget
 import com.justai.jaicf.channel.telegram.*
 
 val chatWidgetScenario = Scenario(chatwidget) {
-
     state("test") {
         activators {
             regex("test")

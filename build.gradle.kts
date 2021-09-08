@@ -26,9 +26,6 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
 
-    implementation("ch.qos.logback:logback-classic:$logback")
-
-    implementation("com.just-ai.jaicf:core:$jaicf")
     implementation("com.just-ai.jaicf:core:$jaicf")
     implementation("com.just-ai.jaicf:jaicp:$jaicf")
     implementation("com.just-ai.jaicf:aimybox:$jaicf")
@@ -39,9 +36,9 @@ dependencies {
     implementation("com.just-ai.jaicf:viber:$jaicf")
     implementation("com.just-ai.jaicf:slack:$jaicf")
     implementation("com.just-ai.jaicf:yandex-alice:$jaicf")
-
-
     implementation("com.just-ai.jaicf:caila:$jaicf")
+
+    implementation("ch.qos.logback:logback-classic:$logback")
 }
 
 tasks {

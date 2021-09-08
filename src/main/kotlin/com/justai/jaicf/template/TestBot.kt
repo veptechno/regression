@@ -1,7 +1,6 @@
 package com.justai.jaicf.template
 
 import com.justai.jaicf.BotEngine
-import com.justai.jaicf.activator.caila.CailaIntentActivator
 import com.justai.jaicf.activator.caila.CailaNLUSettings
 import com.justai.jaicf.activator.regex.RegexActivator
 import com.justai.jaicf.channel.jaicp.logging.JaicpConversationLogger
