@@ -1,14 +1,7 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
 import com.justai.jaicf.channel.telegram.*
-import com.justai.jaicf.channel.viber.api.ViberEvent
-import com.justai.jaicf.channel.viber.contact
-import com.justai.jaicf.channel.viber.image
-import com.justai.jaicf.channel.viber.location
-import com.justai.jaicf.channel.viber.sticker
-import com.justai.jaicf.channel.viber.viber
-import com.justai.jaicf.channel.viber.video
 import com.justai.jaicf.plugin.PathValue
 import com.justai.jaicf.plugin.UsesReaction
 

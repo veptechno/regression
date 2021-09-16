@@ -1,9 +1,8 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
 import com.justai.jaicf.channel.facebook.api.CarouselElement
 import com.justai.jaicf.channel.facebook.facebook
-import com.justai.jaicf.channel.viber.viber
 import java.net.URL
 
 val facebookScenario = Scenario(facebook) {

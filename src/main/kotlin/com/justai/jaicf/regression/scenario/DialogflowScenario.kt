@@ -1,8 +1,7 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
 import com.justai.jaicf.channel.googleactions.actions
-import com.justai.jaicf.plugin.PathValue
 
 val actionsScenario = Scenario(actions) {
 

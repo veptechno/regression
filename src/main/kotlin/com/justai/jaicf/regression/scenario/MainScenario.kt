@@ -1,4 +1,4 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
 import com.justai.jaicf.channel.aimybox.api.aimybox

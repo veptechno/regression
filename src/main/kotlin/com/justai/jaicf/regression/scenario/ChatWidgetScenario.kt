@@ -1,16 +1,9 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
-import com.justai.jaicf.channel.telegram.*
-import com.justai.jaicf.channel.yandexalice.AliceReactions
-import com.justai.jaicf.channel.yandexalice.alice
-import com.justai.jaicf.channel.yandexalice.api.model.Image
-import com.justai.jaicf.channel.yandexalice.api.model.ItemsList
-import com.justai.jaicf.plugin.PathValue
-import com.justai.jaicf.plugin.UsesReaction
+import com.justai.jaicf.channel.jaicp.chatwidget
 
-val aliceScenario = Scenario(alice) {
-
+val chatWidgetScenario = Scenario(chatwidget) {
     state("test") {
         activators {
             regex("test")
@@ -22,14 +15,8 @@ val aliceScenario = Scenario(alice) {
             reactions.say("Картинка:")
             reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg")
 
-            reactions.say("Картинка с названием:")
-            reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg", "Это название")
-
-            reactions.say("Ссылка на гугл:")
-            reactions.link("Ссылка на гугл", "https://google.com")
-
-            reactions.say("Аудио:")
-            reactions.audio("https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3")
+            reactions.say("Картинка с подписью:")
+            reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg", "Это подпись")
 
             reactions.say("Конец тестирования")
             reactions.go("../input_test")
@@ -76,17 +63,4 @@ val aliceScenario = Scenario(alice) {
     fallback {
         reactions.say("Вы написали ${request.input}. Для тестирования напишите test")
     }
-}
-
-@UsesReaction("say")
-private fun AliceReactions.removeAndCheck(
-    event: String,
-    uncheckedEvents: MutableList<String>,
-    @PathValue end: String = "../../end"
-) {
-    uncheckedEvents -= event
-    if (uncheckedEvents.isNotEmpty())
-        say("Вам осталось отправить ${uncheckedEvents.joinToString()}")
-    else
-        go(end)
 }

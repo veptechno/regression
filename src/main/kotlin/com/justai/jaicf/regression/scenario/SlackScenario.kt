@@ -1,11 +1,9 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
-import com.justai.jaicf.channel.facebook.api.CarouselElement
-import com.justai.jaicf.channel.jaicp.chatapi
-import java.net.URL
+import com.justai.jaicf.channel.slack.slack
 
-val chatApiScenario = Scenario(chatapi) {
+val slackScenario = Scenario(slack) {
 
     state("test") {
         activators {
@@ -18,20 +16,15 @@ val chatApiScenario = Scenario(chatapi) {
             reactions.say("Картинка:")
             reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg")
 
-            reactions.say("Картинка с описанием:")
-            reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg")
-
-            reactions.say("Аудио:")
-            reactions.audio("https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3")
-
             reactions.say("Конец тестирования")
             reactions.go("../input_test")
         }
     }
 
     state("input_test") {
+
         action {
-            reactions.say("Нажмите на любую кнопку, бот должен написать какую кнопку вы выбрали")
+            reactions.say("Кнопки:")
             reactions.buttons("1", "2", "3")
         }
 

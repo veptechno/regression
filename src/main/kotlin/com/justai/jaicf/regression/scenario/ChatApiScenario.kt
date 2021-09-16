@@ -1,12 +1,9 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
-import com.justai.jaicf.channel.aimybox.aimybox
-import com.justai.jaicf.channel.telegram.*
-import com.justai.jaicf.plugin.PathValue
-import com.justai.jaicf.plugin.UsesReaction
+import com.justai.jaicf.channel.jaicp.chatapi
 
-val aimyboxScenario = Scenario(aimybox) {
+val chatApiScenario = Scenario(chatapi) {
 
     state("test") {
         activators {
@@ -19,9 +16,13 @@ val aimyboxScenario = Scenario(aimybox) {
             reactions.say("Картинка:")
             reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg")
 
+            reactions.say("Картинка с описанием:")
+            reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg")
+
             reactions.say("Аудио:")
             reactions.audio("https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3")
 
+            reactions.say("Конец тестирования")
             reactions.go("../input_test")
         }
     }
@@ -59,7 +60,7 @@ val aimyboxScenario = Scenario(aimybox) {
 
     state("end") {
         action {
-            reactions.say("Конец тестирования")
+            reactions.say("Тестирование окончено")
         }
     }
 

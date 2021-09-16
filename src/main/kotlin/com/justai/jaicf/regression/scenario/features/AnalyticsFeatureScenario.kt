@@ -1,4 +1,4 @@
-package com.justai.jaicf.template.scenario.features
+package com.justai.jaicf.regression.scenario.features
 
 import com.justai.jaicf.builder.Scenario
 import com.justai.jaicf.channel.jaicp.dto.jaicpAnalytics

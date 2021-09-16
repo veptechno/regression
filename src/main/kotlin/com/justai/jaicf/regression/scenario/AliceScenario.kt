@@ -1,13 +1,12 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
-import com.justai.jaicf.channel.slack.SlackReactions
-import com.justai.jaicf.channel.slack.slack
-import com.justai.jaicf.channel.telegram.*
+import com.justai.jaicf.channel.yandexalice.AliceReactions
+import com.justai.jaicf.channel.yandexalice.alice
 import com.justai.jaicf.plugin.PathValue
 import com.justai.jaicf.plugin.UsesReaction
 
-val slackScenario = Scenario(slack) {
+val aliceScenario = Scenario(alice) {
 
     state("test") {
         activators {
@@ -20,15 +19,23 @@ val slackScenario = Scenario(slack) {
             reactions.say("Картинка:")
             reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg")
 
+            reactions.say("Картинка с названием:")
+            reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg", "Это название")
+
+            reactions.say("Ссылка на гугл:")
+            reactions.link("Ссылка на гугл", "https://google.com")
+
+            reactions.say("Аудио:")
+            reactions.audio("https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3")
+
             reactions.say("Конец тестирования")
             reactions.go("../input_test")
         }
     }
 
     state("input_test") {
-
         action {
-            reactions.say("Кнопки:")
+            reactions.say("Нажмите на любую кнопку, бот должен написать какую кнопку вы выбрали")
             reactions.buttons("1", "2", "3")
         }
 
@@ -66,4 +73,17 @@ val slackScenario = Scenario(slack) {
     fallback {
         reactions.say("Вы написали ${request.input}. Для тестирования напишите test")
     }
+}
+
+@UsesReaction("say")
+private fun AliceReactions.removeAndCheck(
+    event: String,
+    uncheckedEvents: MutableList<String>,
+    @PathValue end: String = "../../end"
+) {
+    uncheckedEvents -= event
+    if (uncheckedEvents.isNotEmpty())
+        say("Вам осталось отправить ${uncheckedEvents.joinToString()}")
+    else
+        go(end)
 }

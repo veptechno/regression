@@ -1,12 +1,11 @@
-package com.justai.jaicf.template
+package com.justai.jaicf.regression
 
 import com.justai.jaicf.BotEngine
 import com.justai.jaicf.activator.caila.CailaNLUSettings
 import com.justai.jaicf.activator.regex.RegexActivator
 import com.justai.jaicf.channel.jaicp.logging.JaicpConversationLogger
 import com.justai.jaicf.logging.Slf4jConversationLogger
-import com.justai.jaicf.template.scenario.mainScenario
-import java.util.*
+import com.justai.jaicf.regression.scenario.mainScenario
 
 val accessToken =
     System.getenv("JAICP_API_TOKEN")

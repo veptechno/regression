@@ -1,10 +1,10 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
-import com.justai.jaicf.channel.jaicp.chatwidget
-import com.justai.jaicf.channel.telegram.*
+import com.justai.jaicf.channel.aimybox.aimybox
 
-val chatWidgetScenario = Scenario(chatwidget) {
+val aimyboxScenario = Scenario(aimybox) {
+
     state("test") {
         activators {
             regex("test")
@@ -16,10 +16,9 @@ val chatWidgetScenario = Scenario(chatwidget) {
             reactions.say("Картинка:")
             reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg")
 
-            reactions.say("Картинка с подписью:")
-            reactions.image("https://i.ytimg.com/vi/8W2njNW6hI0/hqdefault.jpg", "Это подпись")
+            reactions.say("Аудио:")
+            reactions.audio("https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3")
 
-            reactions.say("Конец тестирования")
             reactions.go("../input_test")
         }
     }
@@ -57,7 +56,7 @@ val chatWidgetScenario = Scenario(chatwidget) {
 
     state("end") {
         action {
-            reactions.say("Тестирование окончено")
+            reactions.say("Конец тестирования")
         }
     }
 

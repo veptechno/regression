@@ -1,4 +1,4 @@
-package com.justai.jaicf.template.connections
+package com.justai.jaicf.regression.connections
 
 import com.justai.jaicf.channel.aimybox.AimyboxChannel
 import com.justai.jaicf.channel.alexa.AlexaChannel
@@ -13,8 +13,8 @@ import com.justai.jaicf.channel.slack.SlackChannel
 import com.justai.jaicf.channel.telegram.TelegramChannel
 import com.justai.jaicf.channel.viber.ViberChannel
 import com.justai.jaicf.channel.yandexalice.AliceChannel
-import com.justai.jaicf.template.accessToken
-import com.justai.jaicf.template.testBot
+import com.justai.jaicf.regression.accessToken
+import com.justai.jaicf.regression.testBot
 
 fun main() {
     JaicpPollingConnector(

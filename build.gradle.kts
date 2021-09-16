@@ -7,8 +7,9 @@ plugins {
 group = "com.justai.jaicf"
 version = "1.0.0"
 
-val jaicf = "1.1.3"
+val jaicf = "1.2.0"
 val logback = "1.2.3"
+val junit = "5.7.2"
 
 // Main class to run application on heroku. Either JaicpPollerKt, or JaicpServerKt. Will propagate to .jar main class.
 application {
@@ -20,7 +21,8 @@ repositories {
     mavenCentral()
     jcenter()
     maven("https://jitpack.io")
-//    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://s01.oss.sonatype.org/content/groups/staging/")
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
@@ -39,6 +41,10 @@ dependencies {
     implementation("com.just-ai.jaicf:caila:$jaicf")
 
     implementation("ch.qos.logback:logback-classic:$logback")
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junit")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junit")
 }
 
 tasks {
@@ -47,6 +53,9 @@ tasks {
     }
     compileTestKotlin {
         kotlinOptions.jvmTarget = "1.8"
+    }
+    test {
+        useJUnitPlatform()
     }
 }
 

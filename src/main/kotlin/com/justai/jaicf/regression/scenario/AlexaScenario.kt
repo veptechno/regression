@@ -1,11 +1,8 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
 import com.justai.jaicf.builder.Scenario
 import com.justai.jaicf.channel.alexa.alexa
 import com.justai.jaicf.channel.alexa.model.AlexaIntent.FALLBACK
-import com.justai.jaicf.channel.telegram.*
-import com.justai.jaicf.plugin.PathValue
-import com.justai.jaicf.plugin.UsesReaction
 
 val alexaScenario = Scenario(alexa) {
 

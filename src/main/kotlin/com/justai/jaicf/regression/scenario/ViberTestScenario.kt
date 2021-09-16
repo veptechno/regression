@@ -1,8 +1,5 @@
-package com.justai.jaicf.template.scenario
+package com.justai.jaicf.regression.scenario
 
-import com.justai.jaicf.BotEngine
-import com.justai.jaicf.activator.event.event
-import com.justai.jaicf.activator.regex.RegexActivator
 import com.justai.jaicf.builder.Scenario
 import com.justai.jaicf.channel.viber.api.CarouselElement
 import com.justai.jaicf.channel.viber.api.ViberEvent
@@ -19,13 +16,10 @@ import com.justai.jaicf.channel.viber.file
 import com.justai.jaicf.channel.viber.image
 import com.justai.jaicf.channel.viber.location
 import com.justai.jaicf.channel.viber.sdk.api.KeyboardBuilder
-import com.justai.jaicf.channel.viber.sdk.api.OpenMapButton
 import com.justai.jaicf.channel.viber.sdk.api.RedirectButton
 import com.justai.jaicf.channel.viber.sdk.api.ReplyButton
 import com.justai.jaicf.channel.viber.sdk.api.ViberButton
 import com.justai.jaicf.channel.viber.sdk.api.toKeyboard
-import com.justai.jaicf.channel.viber.sdk.message.Location
-import com.justai.jaicf.channel.viber.sdk.message.PictureMessage
 import com.justai.jaicf.channel.viber.sdk.message.TextMessage
 import com.justai.jaicf.channel.viber.sticker
 import com.justai.jaicf.channel.viber.subscribed
