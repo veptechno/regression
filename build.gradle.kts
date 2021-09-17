@@ -7,7 +7,7 @@ plugins {
 group = "com.justai.jaicf"
 version = "1.0.0"
 
-val jaicf = "1.2.0"
+val jaicf = "1.2.0-fixes-SNAPSHOT"
 val logback = "1.2.3"
 val junit = "5.7.2"
 
@@ -22,7 +22,7 @@ repositories {
     jcenter()
     maven("https://jitpack.io")
     maven("https://s01.oss.sonatype.org/content/groups/staging/")
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://s01.oss.sonatype.orxKg/content/repositories/snapshots/")
 }
 
 dependencies {
@@ -39,6 +39,7 @@ dependencies {
     implementation("com.just-ai.jaicf:slack:$jaicf")
     implementation("com.just-ai.jaicf:yandex-alice:$jaicf")
     implementation("com.just-ai.jaicf:caila:$jaicf")
+    implementation("com.just-ai.jaicf:mapdb:$jaicf")
 
     implementation("ch.qos.logback:logback-classic:$logback")
 
