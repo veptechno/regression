@@ -7,23 +7,22 @@ import com.justai.jaicf.channel.jaicp.logging.JaicpConversationLogger
 import com.justai.jaicf.logging.Slf4jConversationLogger
 import com.justai.jaicf.regression.connections.main
 import com.justai.jaicf.regression.scenario.channels.TelegramPaymentsScenario
-import com.justai.jaicf.regression.scenario.mainScenario
+import com.justai.jaicf.regression.scenario.telephony.telephonyScenario
 
-val accessToken =
-    System.getenv("JAICP_API_TOKEN")
-        ?: print("Enter your JAICP project API key: ").run { readLine() }!!
+val accessToken = System.getenv("JAICP_API_TOKEN")
+    ?: print("Enter your JAICP project API key: ").run { readLine() }!!
 
 private val cailaNLUSettings = CailaNLUSettings(
     accessToken = accessToken
 )
 
 val testBot = BotEngine(
-    scenario = mainScenario,
+    scenario = telephonyScenario,
     conversationLoggers = arrayOf(
-        JaicpConversationLogger(accessToken),
+        JaicpConversationLogger(accessToken, url = "http://test13.lo.test-ai.net/chatadapter"),
         Slf4jConversationLogger()
     ),
     activators = arrayOf(
         RegexActivator
-    )
+    )`
 )

@@ -33,6 +33,7 @@ fun main() {
             TelegramChannel,
             TelephonyChannel,
             ViberChannel.Factory()
-        )
+        ),
+        url= "http://test13.lo.test-ai.net/chatadapter"
     ).runBlocking()
 }
