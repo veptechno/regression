@@ -7,9 +7,9 @@ plugins {
 group = "com.justai.jaicf"
 version = "1.0.0"
 
-val jaicf = "1.2.0"
-val logback = "1.2.3"
-val junit = "5.7.2"
+val jaicf = "1.2.3-SNAPSHOT"
+val logback = "1.2.11"
+val junit = "5.8.2"
 
 // Main class to run application on heroku. Either JaicpPollerKt, or JaicpServerKt. Will propagate to .jar main class.
 application {
@@ -17,12 +17,12 @@ application {
 }
 
 repositories {
-    mavenLocal()
+//    mavenLocal()
     mavenCentral()
     jcenter()
     maven("https://jitpack.io")
-//    maven("https://s01.oss.sonatype.org/content/groups/staging/")
-//    maven("https://s01.oss.sonatype.orxKg/content/repositories/snapshots/")
+    maven("https://s01.oss.sonatype.org/content/groups/staging/")
+    maven("https://s01.oss.sonatype.orxKg/content/repositories/snapshots/")
 }
 
 dependencies {
