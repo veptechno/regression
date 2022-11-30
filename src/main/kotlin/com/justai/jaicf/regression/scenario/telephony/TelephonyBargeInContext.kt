@@ -3,7 +3,11 @@ package com.justai.jaicf.regression.scenario.telephony
 import com.justai.jaicf.builder.Scenario
 import com.justai.jaicf.channel.jaicp.telephony
 
-val telephonyScenario = Scenario(telephony) {
+/*
+* Проверка баржина в контексте
+* Ожидаемое поведение - прерываемся на "да" и "нет"
+* */
+val telephonyBargeInContextScenario = Scenario(telephony) {
 
     state("bargeIn") {
         activators {
@@ -13,18 +17,37 @@ val telephonyScenario = Scenario(telephony) {
         action {
             reactions.say(
                 "длинный текст который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго который долго",
-                bargeIn = true
+                bargeInContext = "/Nested",
             )
         }
     }
 
-    state("yes") {
-        activators {
-            regex("да")
+    state("Nested", modal = true) {
+        state("Yes") {
+            activators {
+                regex("да")
+            }
+            action {
+                reactions.say("да")
+            }
         }
 
+        state("No") {
+            activators {
+                regex("нет")
+            }
+            action {
+                reactions.say("Нет")
+            }
+        }
+    }
+
+    state("TopLevel"){
+        activators {
+            regex("корень")
+        }
         action {
-            reactions.say("Прерывание в стейте ${this.context.dialogContext.currentState}")
+            reactions.say("Корень")
         }
     }
 
