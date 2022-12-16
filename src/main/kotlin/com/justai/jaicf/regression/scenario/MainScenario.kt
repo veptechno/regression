@@ -15,6 +15,7 @@ import com.justai.jaicf.channel.yandexalice.api.alice
 val mainScenario = Scenario {
 
     append("actions", actionsScenario)
+    append("dialogflow", dialogflowScenario)
     append("telegram", telegramScenario)
     append("alexa", alexaScenario)
     append("chatapi", chatApiScenario)
@@ -28,6 +29,7 @@ val mainScenario = Scenario {
     state("main") {
         activators {
             catchAll()
+            anyIntent()
         }
 
         action {

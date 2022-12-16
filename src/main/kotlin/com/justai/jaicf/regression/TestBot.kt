@@ -5,7 +5,7 @@ import com.justai.jaicf.activator.caila.CailaNLUSettings
 import com.justai.jaicf.activator.regex.RegexActivator
 import com.justai.jaicf.channel.jaicp.logging.JaicpConversationLogger
 import com.justai.jaicf.logging.Slf4jConversationLogger
-import com.justai.jaicf.regression.scenario.telephony.telephonyBargeInContextScenario
+import com.justai.jaicf.regression.scenario.dialogflowScenario
 
 val accessToken = System.getenv("JAICP_API_TOKEN")
     ?: print("Enter your JAICP project API key: ").run { readLine() }!!
@@ -15,7 +15,7 @@ private val cailaNLUSettings = CailaNLUSettings(
 )
 
 val testBot = BotEngine(
-    scenario = telephonyBargeInContextScenario,
+    scenario = dialogflowScenario,
     conversationLoggers = arrayOf(
         JaicpConversationLogger(accessToken),
         Slf4jConversationLogger()
