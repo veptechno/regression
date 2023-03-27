@@ -7,7 +7,7 @@ plugins {
 group = "com.justai.jaicf"
 version = "1.0.0"
 
-val jaicf = "1.2.3-SNAPSHOT"
+val jaicf = "1.3.0"
 val logback = "1.2.11"
 val junit = "5.8.2"
 
@@ -17,12 +17,11 @@ application {
 }
 
 repositories {
-//    mavenLocal()
     mavenCentral()
     jcenter()
     maven("https://jitpack.io")
     maven("https://s01.oss.sonatype.org/content/groups/staging/")
-    maven("https://s01.oss.sonatype.orxKg/content/repositories/snapshots/")
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
